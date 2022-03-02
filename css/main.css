@@ -8,7 +8,7 @@
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/episodelist/episodes_grid.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/header/header_transparent.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/login/login_frame.css');
-@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fields/fields_border.css');
+@import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fields/fields_noborder.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/cornerindicator/indicator_floating.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/type/dark_withaccent.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/titlepage/title_simple-logo.css');
@@ -46,10 +46,24 @@ body, h1, h2, h3, h4 { font-family: 'Inter', sans-serif; } /* THIS IS WHAT jf_fo
 div.personCard > :first-child > :first-child { display: none; }
 .itemDetailPage .cardText { text-align: left; }
 .itemDetailPage .textActionButton { text-align: left; }
-.mainDrawer-scrollContainer { background-color: #080809; }
 
 /* CHANGE SIDEBAR AND BACKGROUND COLORS */
-.backgroundContainer, .dialog, html, .mainDrawer-scrollContainer { background-color: #282C34; }
+.backgroundContainer, .dialog, html/*, .mainDrawer-scrollContainer*/ { background-color: #282C34; }
 
 /* HIDE INFO THAT'S USELESS (TO ME) */
 .seriesAirTime, .itemTags { display: none!important; }
+
+.navMenuOption-selected { background-color: transparent !important; }
+
+.mainDrawer {
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.paperList, .visualCardBox {
+  background-color: rgba(0, 0, 0, 0.17);
+}
+
+.sessionNowPlayingInnerContent {
+  background-color: #21252B !important;
+}
