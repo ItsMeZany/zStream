@@ -42,20 +42,16 @@ div.personCard > :first-child > :first-child { display: none; }
 .backgroundContainer, .dialog, html/*, .mainDrawer-scrollContainer*/ { background-color: #282C34; }
 /* HIDE INFO THAT'S USELESS (TO ME) */
 #seriesAirTime, .itemTags { display: none!important; }
-
+/* REMOVE SELECTED NAV ITEM BACKGROUND */
 .navMenuOption-selected { background-color: transparent !important; }
-
+/* REMOVE DRAWER DIMMING */
 .mainDrawer {
   backdrop-filter: blur(15px);
   background-color: rgba(0, 0, 0, 0);
 }
-
-.paperList, .visualCardBox {
-  background-color: rgba(0, 0, 0, 0.17);
-}
-
+/* CHANGE SOME DASHBOARD COLORS */
+.paperList, .visualCardBox { background-color: rgba(0, 0, 0, 0.17); }
 .sessionNowPlayingInnerContent { background-color: #21252B !important; }
-
 /* CENTER DROPDOWN TEXT */
 .emby-select-withcolor { text-align-last: center; }
 /* CENTER OPTIONS TEXT */
@@ -69,7 +65,7 @@ option { text-align: center; }
   font-size: 0;
 }
 #loginPage h1:after {
-  content: 'Sign In';
+  content: 'zStream';
   font-size: 32px;
 }
 /* BACKDROP VIDEO STYLING */
@@ -78,50 +74,30 @@ option { text-align: center; }
   min-width: 100% !important;
   min-height: 100% !important;
   object-fit: cover !important;
-  object-position: 50%;
+  object-position: 50% !important;
 }
-.originalTitle {
-  display: none;
-}
-/* TESTING */
-.layout-mobile .detailLogo {
-  display: none !important;
-}
-.detailPageSecondaryContainer {
-  margin: 2rem 0;
-}
+/* HIDE ORIGINAL TITLES AS IT DOES NOT LOOK THE BEST WITH LOGOS */
+.originalTitle { display: none; }
+/* MOVE DETAILS CONTAINER */
+.detailPageSecondaryContainer { margin: 2rem 0; }
+/* WRAP CONTENT ON DESKTOP AS I ONLY HAVE TWO MEDIA SOURCES CURRENTLY */
 @media all and (min-width: 50em) {
-  .homePage .emby-scroller {
-    margin-right: 0;
-  }
-  .homePage .emby-scrollbuttons {
-    display: none;
-  }
-  .homePage .itemsContainer {
-    flex-wrap: wrap;
-  }
-  .itemDetailPage .emby-scroller {
-  margin-right: 0;
-  }
-  .itemDetailPage .emby-scrollbuttons {
-    display: none;
-  }
-  .itemDetailPage .itemsContainer {
-    flex-wrap: wrap;
-  }
+  .homePage .emby-scroller { margin-right: 0; }
+  .homePage .emby-scrollbuttons { display: none; }
+  .homePage .itemsContainer { flex-wrap: wrap; }
+  .itemDetailPage .emby-scroller { margin-right: 0; }
+  .itemDetailPage .emby-scrollbuttons { display: none; }
+  .itemDetailPage .itemsContainer { flex-wrap: wrap; }
 }
-.layout-mobile .mainDetailButtons {
-  max-width: 98vw;
-}
-div.section0 div h2.sectionTitle {
-  display: none;
-}
-div.section0 div div.itemsContainer  {
-  justify-content: center;
-}
-.sectionTitle {
-  margin-right: .4em !important;
-}
-.material-icons.chevron_right {
-  display: none;
-}
+/* FIX HORIZONTAL SCROLLING BUG ON SOME PAGES */
+.layout-mobile .mainDetailButtons { max-width: 98vw; }
+/* I USE MY MEDIA (SMALL) IN THE FIRST SECTION AND
+THE REMOVAL OF THE TITLE AND CENTERING OF THE SECTION
+ALLOWS IT TO ACT AND LOOK SIMILAR TO A HEADER */
+div.section0 div h2.sectionTitle { display: none; }
+div.section0 div div.itemsContainer  { justify-content: center; }
+/* REMOVE CHEVRON AND UPDATE MARGIN TO COMPENSATE */
+.sectionTitle { margin-right: .4em !important; }
+.material-icons.chevron_right { display: none; }
+/* I WILL CHANGE THIS SOON TO MATCH MY PLANS FOR LOGO ON MOBILE */
+.layout-mobile .detailLogo { display: none !important; }
