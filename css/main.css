@@ -14,44 +14,34 @@
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/titlepage/title_simple-logo.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/progress/floating.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/effects/glassy.css');
-
-.skinHeader-withBackground {
-  background-color: transparent !important;
-}
-
+.skinHeader-withBackground { background-color: transparent !important; }
 body, h1, h2, h3, h4 { font-family: 'Inter', sans-serif; } /* THIS IS WHAT jf_font.css DOES */
 .emby-textarea { font-family: monospace; font-size: 10pt;}/* USING THE Inter FONT INSTEAD. */
-
 /* SETTING SOME Ultrachromic VARS */
 :root {--accent: 0, 112, 243;}
 :root {--rounding: 12px;}
-
-/* Thanks prayag17 */
+/* THANKS prayag17 */
 @import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
-
 /* BACKGROUND CUSTOMIZATION */
 .backdropImage {filter: blur(10px) saturate(180%) contrast(120%) brightness(40%);}
-
 /* CUSTOM LOGIN PAGE BACKGROUND */
 #loginPage {background: url(https://i.imgur.com/AWn39l6.png) !important; background-repeat: no-repeat !important; background-size: cover !important;}
-
 /* SHADOWS */
 .cardScalable { box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.15); }
-
-/* TEXT-ONLY CAST */
+/* TEXT-ONLY CAST
 #castContent .card.overflowPortraitCard { width: 4.2cm; font-size: 90%; }
 #castContent .personCard { width: auto; }
 #castContent .personCard .cardBox { margin-bottom: 0px; margin-right: 0px; }
 #castContent { flex-wrap: wrap; max-height: 9.75em; }
 div.personCard > :first-child > :first-child { display: none; }
 .itemDetailPage .cardText { text-align: left; }
-.itemDetailPage .textActionButton { text-align: left; }
-
+.itemDetailPage .textActionButton { text-align: left; } */
+/* HIDE CAST AS IT IS NOT GOOD IN MY CASE */
+#castCollapsible { display: none; }
 /* CHANGE SIDEBAR AND BACKGROUND COLORS */
 .backgroundContainer, .dialog, html/*, .mainDrawer-scrollContainer*/ { background-color: #282C34; }
-
 /* HIDE INFO THAT'S USELESS (TO ME) */
-.seriesAirTime, .itemTags { display: none!important; }
+#seriesAirTime, .itemTags { display: none!important; }
 
 .navMenuOption-selected { background-color: transparent !important; }
 
@@ -64,6 +54,74 @@ div.personCard > :first-child > :first-child { display: none; }
   background-color: rgba(0, 0, 0, 0.17);
 }
 
-.sessionNowPlayingInnerContent {
-  background-color: #21252B !important;
+.sessionNowPlayingInnerContent { background-color: #21252B !important; }
+
+/* CENTER DROPDOWN TEXT */
+.emby-select-withcolor { text-align-last: center; }
+/* CENTER OPTIONS TEXT */
+option { text-align: center; }
+/* RAISE DETAIL SECTION */
+.detailSection { margin-top: -30px; }
+/* CHANGE LOGIN TEXT */
+#loginPage h1 {
+  font-weight: 700;
+  text-align: left;
+  font-size: 0;
+}
+#loginPage h1:after {
+  content: 'Sign In';
+  font-size: 32px;
+}
+/* BACKDROP VIDEO STYLING */
+.videoPlayerContainer video {
+  filter: blur(10px) saturate(180%) contrast(120%) brightness(60%);
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50%;
+}
+.originalTitle {
+  display: none;
+}
+/* TESTING */
+.layout-mobile .detailLogo {
+  display: none !important;
+}
+.detailPageSecondaryContainer {
+  margin: 2rem 0;
+}
+@media all and (min-width: 50em) {
+  .homePage .emby-scroller {
+    margin-right: 0;
+  }
+  .homePage .emby-scrollbuttons {
+    display: none;
+  }
+  .homePage .itemsContainer {
+    flex-wrap: wrap;
+  }
+  .itemDetailPage .emby-scroller {
+  margin-right: 0;
+  }
+  .itemDetailPage .emby-scrollbuttons {
+    display: none;
+  }
+  .itemDetailPage .itemsContainer {
+    flex-wrap: wrap;
+  }
+}
+.layout-mobile .mainDetailButtons {
+  max-width: 98vw;
+}
+div.section0 div h2.sectionTitle {
+  display: none;
+}
+div.section0 div div.itemsContainer  {
+  justify-content: center;
+}
+.sectionTitle {
+  margin-right: .4em !important;
+}
+.material-icons.chevron_right {
+  display: none;
 }
