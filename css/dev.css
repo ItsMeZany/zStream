@@ -1,0 +1,234 @@
+/* YES, THE zStream CSS IS A MODIFIED VERSION OF CTalvio's Ultrachromic. ( https://github.com/CTalvio/Ultrachromic ) */
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fixes.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/base.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/accentlist.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/rounding.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/smallercast.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/episodelist/episodes_grid.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/header/header_transparent.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/login/login_frame.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fields/fields_noborder.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/cornerindicator/indicator_floating.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/type/dark_withaccent.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/titlepage/title_simple-logo.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/progress/floating.css");
+@import url("https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/effects/glassy.css");
+
+/* THANKS prayag17 ( https://github.com/prayag17/Jellyfin-Icons ) */
+@import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+
+/* DARK THEME NULLIFIES TRANSPARENT HEADER SET BY ULTRACHROMIC ON SOME PAGES */
+.skinHeader-withBackground {
+  background-color: transparent !important;
+}
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Inter", sans-serif;
+} /* THIS IS WHAT jf_font.css DOES */
+.emby-textarea {
+  font-family: monospace;
+  font-size: 10pt;
+} /* USING THE Inter FONT INSTEAD. */
+
+/* SETTING SOME Ultrachromic VARS */
+:root {
+  --accent: 0, 112, 243;
+}
+:root {
+  --rounding: 12px;
+}
+
+/* BACKGROUND CUSTOMIZATION */
+.backdropImage {
+  filter: blur(10px) saturate(180%) contrast(120%) brightness(40%);
+}
+
+/* CUSTOM LOGIN PAGE BACKGROUND */
+#loginPage {
+  background: url(https://i.imgur.com/AWn39l6.png) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* .cardScalable { box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.15); } */
+
+/* HIDE CAST AS IT IS NOT GOOD IN MY CASE */
+#castCollapsible {
+  display: none;
+}
+
+/* CHANGE SIDEBAR AND BACKGROUND COLORS */
+.backgroundContainer, .dialog, html/*, .mainDrawer-scrollContainer*/ {
+  background-color: #282c34;
+}
+
+/* HIDE INFO THAT'S USELESS (TO ME) */
+#seriesAirTime,
+.itemTags {
+  display: none !important;
+}
+
+/* REMOVE SELECTED NAV ITEM BACKGROUND */
+.navMenuOption-selected {
+  background-color: transparent !important;
+}
+
+/* REMOVE DRAWER DIMMING */
+.mainDrawer {
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* CHANGE SOME DASHBOARD COLORS */
+.paperList,
+.visualCardBox {
+  background-color: rgba(0, 0, 0, 0.17);
+}
+.sessionNowPlayingInnerContent {
+  background-color: #21252b !important;
+}
+
+/* CENTER DROPDOWN TEXT */
+.emby-select-withcolor {
+  text-align-last: center;
+}
+
+/* CENTER OPTIONS TEXT */
+option {
+  text-align: center;
+}
+
+/* RAISE DETAIL SECTION */
+.detailSection {
+  margin-top: -30px;
+}
+
+/* CHANGE LOGIN TEXT */
+#loginPage h1 {
+  display: none;
+}
+
+/* BACKDROP VIDEO STYLING */
+.videoPlayerContainer video {
+  filter: blur(10px) saturate(180%) contrast(120%) brightness(60%);
+  min-width: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% !important;
+}
+
+/* HIDE ORIGINAL TITLES AS IT DOES NOT LOOK THE BEST WITH LOGOS */
+.originalTitle {
+  display: none;
+}
+
+/* MOVE DETAILS CONTAINER */
+.detailPageSecondaryContainer {
+  margin: 2rem 0;
+}
+
+/* WRAP CONTENT ON DESKTOP AS I ONLY HAVE TWO MEDIA SOURCES CURRENTLY */
+@media all and (min-width: 50em) {
+  .homePage .emby-scroller {
+    margin-right: 0;
+  }
+  .homePage .emby-scrollbuttons {
+    display: none;
+  }
+  .homePage .itemsContainer {
+    flex-wrap: wrap;
+  }
+}
+
+/* FIX HORIZONTAL SCROLLING BUG ON SOME PAGES */
+.layout-mobile .mainDetailButtons {
+  max-width: 98vw;
+}
+
+/* I USE MY MEDIA (SMALL) IN THE FIRST SECTION AND
+THE REMOVAL OF THE TITLE AND CENTERING OF THE SECTION
+ALLOWS IT TO ACT AND LOOK SIMILAR TO A HEADER */
+div.section0 div h2.sectionTitle {
+  display: none;
+}
+div.section0 div div.itemsContainer {
+  justify-content: center;
+}
+
+/* REMOVE CHEVRON AND UPDATE MARGIN TO COMPENSATE */
+.sectionTitle {
+  margin-right: 0.4em !important;
+}
+
+/* REMOVE PARENT NAMES FROM SEASON SCREENS ( JUST USE BACK BUTTON INSTEAD ) */
+h1.parentName {
+  display: none;
+}
+
+/* REMOVE PADDING ON FIRST SECTION AS IT WILL ALWAYS BE THE MY MEDIA ( SMALL ) */
+div.section0 > div.verticalSection-extrabottompadding {
+  margin-bottom: 0;
+}
+
+/* SET USER IMAGE BORDER RADII TO BE LESS-CIRCULAR */
+div.userImagePage
+  > div.padded-left.padded-right.padded-bottom-page
+  > div.readOnlyContent
+  > div
+  > div#image {
+  border-radius: 12px !important;
+}
+.headerUserButtonRound {
+  border-radius: 1px !important;
+}
+
+/* CENTER LOGIN FRAME */
+#loginPage .padded-left.padded-right.padded-bottom-page {
+  margin: auto;
+}
+
+/* REMOVE CHEVRON FROM TITLES */
+a.sectionTitleTextButton span.material-icons.chevron_right {
+  display: none;
+}
+
+/*----------------------------------------------------------------------------------*/
+/* THIS IS WHERE THE DIFFERENCE BETWEEN THE DEV VERSION AND THE MAIN VERSION STARTS */
+/*----------------------------------------------------------------------------------*/
+
+.layout-mobile #primaryImage {
+  display: none;
+}
+
+.layout-mobile .infoWrapper.infoText {
+  display: none !important;
+}
+
+.layout-mobile .detailLogo {
+  background-position-x: 50% !important;
+  margin-bottom: 0vh !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  width: calc(100vw - 10vw) !important;
+  display: block !important;
+}
+
+.detail-clamp-text {
+  -webkit-line-clamp: 3 !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.layout-mobile .detailPagePrimaryContainer {
+  padding: 0.5rem 3.3% 0.5rem !important;
+}
+
+.layout-mobile .emby-scroller {
+  padding: 0;
+}

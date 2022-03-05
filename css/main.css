@@ -1,4 +1,4 @@
-/* YES, THE zStream CSS IS A MODIFIED VERSION OF CTalvio's Ultrachromic. */
+/* YES, THE zStream CSS IS A MODIFIED VERSION OF CTalvio's Ultrachromic. ( https://github.com/CTalvio/Ultrachromic ) */
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/fixes.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/base.css');
@@ -14,60 +14,66 @@
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/titlepage/title_simple-logo.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/progress/floating.css');
 @import url('https://cdn.jsdelivr.net/gh/CTalvio/Ultrachromic/effects/glassy.css');
+
+/* THANKS prayag17 ( https://github.com/prayag17/Jellyfin-Icons ) */
+@import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+
+/* DARK THEME NULLIFIES TRANSPARENT HEADER SET BY ULTRACHROMIC ON SOME PAGES */
 .skinHeader-withBackground { background-color: transparent !important; }
+
 body, h1, h2, h3, h4 { font-family: 'Inter', sans-serif; } /* THIS IS WHAT jf_font.css DOES */
 .emby-textarea { font-family: monospace; font-size: 10pt;}/* USING THE Inter FONT INSTEAD. */
+
 /* SETTING SOME Ultrachromic VARS */
 :root {--accent: 0, 112, 243;}
 :root {--rounding: 12px;}
-/* THANKS prayag17 */
-@import url("https://cdn.jsdelivr.net/gh/prayag17/Jellyfin-Icons/round.css");
+
 /* BACKGROUND CUSTOMIZATION */
 .backdropImage {filter: blur(10px) saturate(180%) contrast(120%) brightness(40%);}
+
 /* CUSTOM LOGIN PAGE BACKGROUND */
-#loginPage {background: url(https://i.imgur.com/AWn39l6.png) !important; background-repeat: no-repeat !important; background-size: cover !important;}
-/* SHADOWS */
-.cardScalable { box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.15); }
-/* TEXT-ONLY CAST
-#castContent .card.overflowPortraitCard { width: 4.2cm; font-size: 90%; }
-#castContent .personCard { width: auto; }
-#castContent .personCard .cardBox { margin-bottom: 0px; margin-right: 0px; }
-#castContent { flex-wrap: wrap; max-height: 9.75em; }
-div.personCard > :first-child > :first-child { display: none; }
-.itemDetailPage .cardText { text-align: left; }
-.itemDetailPage .textActionButton { text-align: left; } */
+#loginPage {
+  background: url(https://i.imgur.com/AWn39l6.png) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* .cardScalable { box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.15); } */
+
 /* HIDE CAST AS IT IS NOT GOOD IN MY CASE */
 #castCollapsible { display: none; }
+
 /* CHANGE SIDEBAR AND BACKGROUND COLORS */
 .backgroundContainer, .dialog, html/*, .mainDrawer-scrollContainer*/ { background-color: #282C34; }
+
 /* HIDE INFO THAT'S USELESS (TO ME) */
 #seriesAirTime, .itemTags { display: none!important; }
+
 /* REMOVE SELECTED NAV ITEM BACKGROUND */
 .navMenuOption-selected { background-color: transparent !important; }
+
 /* REMOVE DRAWER DIMMING */
 .mainDrawer {
   backdrop-filter: blur(15px);
   background-color: rgba(0, 0, 0, 0);
 }
+
 /* CHANGE SOME DASHBOARD COLORS */
 .paperList, .visualCardBox { background-color: rgba(0, 0, 0, 0.17); }
 .sessionNowPlayingInnerContent { background-color: #21252B !important; }
+
 /* CENTER DROPDOWN TEXT */
 .emby-select-withcolor { text-align-last: center; }
+
 /* CENTER OPTIONS TEXT */
 option { text-align: center; }
+
 /* RAISE DETAIL SECTION */
 .detailSection { margin-top: -30px; }
+
 /* CHANGE LOGIN TEXT */
-#loginPage h1 {
-  font-weight: 700;
-  text-align: left;
-  font-size: 0;
-}
-#loginPage h1:after {
-  content: 'zStream';
-  font-size: 32px;
-}
+#loginPage h1 { display: none; }
+
 /* BACKDROP VIDEO STYLING */
 .videoPlayerContainer video {
   filter: blur(10px) saturate(180%) contrast(120%) brightness(60%);
@@ -76,28 +82,47 @@ option { text-align: center; }
   object-fit: cover !important;
   object-position: 50% !important;
 }
+
 /* HIDE ORIGINAL TITLES AS IT DOES NOT LOOK THE BEST WITH LOGOS */
 .originalTitle { display: none; }
+
 /* MOVE DETAILS CONTAINER */
 .detailPageSecondaryContainer { margin: 2rem 0; }
+
 /* WRAP CONTENT ON DESKTOP AS I ONLY HAVE TWO MEDIA SOURCES CURRENTLY */
 @media all and (min-width: 50em) {
   .homePage .emby-scroller { margin-right: 0; }
   .homePage .emby-scrollbuttons { display: none; }
   .homePage .itemsContainer { flex-wrap: wrap; }
-  .itemDetailPage .emby-scroller { margin-right: 0; }
-  .itemDetailPage .emby-scrollbuttons { display: none; }
-  .itemDetailPage .itemsContainer { flex-wrap: wrap; }
 }
+
 /* FIX HORIZONTAL SCROLLING BUG ON SOME PAGES */
 .layout-mobile .mainDetailButtons { max-width: 98vw; }
+
 /* I USE MY MEDIA (SMALL) IN THE FIRST SECTION AND
 THE REMOVAL OF THE TITLE AND CENTERING OF THE SECTION
 ALLOWS IT TO ACT AND LOOK SIMILAR TO A HEADER */
 div.section0 div h2.sectionTitle { display: none; }
 div.section0 div div.itemsContainer  { justify-content: center; }
+
 /* REMOVE CHEVRON AND UPDATE MARGIN TO COMPENSATE */
 .sectionTitle { margin-right: .4em !important; }
-.material-icons.chevron_right { display: none; }
+
 /* I WILL CHANGE THIS SOON TO MATCH MY PLANS FOR LOGO ON MOBILE */
 .layout-mobile .detailLogo { display: none !important; }
+
+/* REMOVE PARENT NAMES FROM SEASON SCREENS ( JUST USE BACK BUTTON INSTEAD ) */
+h1.parentName { display: none; }
+
+/* REMOVE PADDING ON FIRST SECTION AS IT WILL ALWAYS BE THE MY MEDIA ( SMALL ) */
+div.section0 > div.verticalSection-extrabottompadding { margin-bottom: 0; }
+
+/* SET USER IMAGE BORDER RADII TO BE LESS-CIRCULAR */
+div.userImagePage > div.padded-left.padded-right.padded-bottom-page > div.readOnlyContent > div > div#image { border-radius: 12px !important; }
+.headerUserButtonRound { border-radius: 1px !important; }
+
+/* CENTER LOGIN FRAME */
+#loginPage .padded-left.padded-right.padded-bottom-page {margin: auto;}
+
+/* REMOVE CHEVRON FROM TITLES */
+a.sectionTitleTextButton span.material-icons.chevron_right { display: none; }
